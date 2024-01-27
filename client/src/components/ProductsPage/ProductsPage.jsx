@@ -37,7 +37,7 @@ export const Products = () => {
         category.toLowerCase().includes(lowerCaseQuery)
     );
     setFilteredProducts(filtered);
-    setSelectedCategories([])
+    setSelectedCategories([]);
   };
 
   const handleCategoryChange = (category) => {
@@ -50,11 +50,12 @@ export const Products = () => {
       // Add category if not selected
       updatedCategories.push(category);
     }
-    
-    const filtered = products.filter((product) => updatedCategories.includes(product.category.toLowerCase()));
+
+    const filtered = products.filter((product) =>
+      updatedCategories.includes(product.category.toLowerCase())
+    );
     setSelectedCategories(updatedCategories);
     setFilteredProducts(filtered);
-
   };
 
   const resetFilters = () => {
@@ -78,14 +79,14 @@ export const Products = () => {
             "women's clothing",
           ].map((category) => (
             <li key={category}>
-            <input
-              type="checkbox"
-              id={category}
-              checked={selectedCategories.includes(category)}
-              onChange={() => handleCategoryChange(category)}
-            />
-            <label htmlFor={category}>{category}</label>
-          </li>
+              <input
+                type="checkbox"
+                id={category}
+                checked={selectedCategories.includes(category)}
+                onChange={() => handleCategoryChange(category)}
+              />
+              <label htmlFor={category}>{category}</label>
+            </li>
           ))}
         </ul>
       </div>
@@ -93,7 +94,7 @@ export const Products = () => {
         <SearchBox onSearch={handleSearch} />
         <p className="filter-message">
           {selectedCategories.length > 0
-            ? `Filtered by categories: ${selectedCategories.join(', ')}`
+            ? `Filtered by categories: ${selectedCategories.join(", ")}`
             : `Showing all products`}
         </p>
         <ul className="product-list">
