@@ -2,9 +2,14 @@ import { BookPreview } from "./style";
 import { useDrag } from "react-dnd";
 import { ItemTypes } from "../../../../constants/ItemTypes";
 import image from "../../../../assets/images/TheGreatGatsby.jpg";
-import { Card, CardContent, CardMedia } from "@mui/material";
+import { Card, CardContent, CardMedia, IconButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useDeleteBook } from "../../hooks/useDeleteBook";
 
-export const Book = ({ title, author, genre }) => {
+export const Book = ({ id, title, author, genre }) => {
+  const { deleteBook, isDeletingBookError, isDeletingBook } =
+    useDeleteBook({ id });
+
   const [{ isDragging }, dragRef] = useDrag(
     () => ({
       type: ItemTypes.BOOK,
@@ -14,6 +19,14 @@ export const Book = ({ title, author, genre }) => {
     }),
     []
   );
+
+  if (isDeletingBookError) {
+    return <div>Error while deleting</div>;
+  }
+
+  if (isDeletingBook) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <BookPreview
@@ -30,6 +43,9 @@ export const Book = ({ title, author, genre }) => {
           <p>{title}</p>
           <p>{author}</p>
           <p>{genre}</p>
+          <IconButton onClick={deleteBook}>
+            <DeleteIcon />
+          </IconButton>
         </CardContent>
       </Card>
     </BookPreview>
