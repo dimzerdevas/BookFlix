@@ -13,7 +13,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         redirect_uri: window.location.origin,
       }}
     >
-      {console.log('hello wrold', document.readyState)}
       <App />
     </Auth0Provider>
     ,{" "}
