@@ -7,14 +7,13 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-dvtx0vpq.us.auth0.com"
-      clientId="IJiHFFr6QYUSdH2OHujAdfjINVxB2lBt"
+      domain={import.meta.env.VITE_DOMAIN}
+      clientId={import.meta.env.VITE_CLIENT_ID}
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}
     >
       <App />
     </Auth0Provider>
-    ,{" "}
   </React.StrictMode>
 );
