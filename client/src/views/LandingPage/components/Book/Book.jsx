@@ -1,7 +1,6 @@
 import { BookPreview } from "./style";
 import { useDrag } from "react-dnd";
 import { ItemTypes } from "../../../../constants/ItemTypes";
-import image from "../../../../assets/images/TheGreatGatsby.jpg";
 import { Card, CardContent, CardMedia, IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useDeleteBook } from "../../hooks/useDeleteBook";
@@ -38,7 +37,7 @@ export const Book = ({ id, title, author, genre }) => {
       }}
     >
       <Card>
-        <CardMedia component="img" height="140" image={image} />
+        <CardMedia component="img" height="140" />
         <CardContent>
           <p>{title}</p>
           <p>{author}</p>

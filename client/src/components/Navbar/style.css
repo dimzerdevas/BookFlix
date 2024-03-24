@@ -1,13 +1,21 @@
 nav {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav_left-submenu img {
+  width: 120px;
+}
+.nav_left-submenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
